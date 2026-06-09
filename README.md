@@ -221,14 +221,8 @@ Where major real estate or workplace transformation decisions are contemplated, 
 
 Andrew Nye
 
-Electrical & Electronic Engineer (University of Nottingham)
-
-MBA (Open University)
-
 Former Chief of Facilities Management, United Nations Headquarters
 
-Personal Finance Blog:
-https://badinvestmentsadvice.com
+BSc Electrical & Electronic Engineer (University of Nottingham)
 
-United Nations Retirees Association Website:
-http://www.aficsny.org
+MBA (Open University)
