@@ -34,6 +34,10 @@ Examples include:
 
 The output is intended to be directional and decision-supportive rather than a substitute for detailed occupancy measurement.
 
+Normalization of Client Data
+
+A further complication in this sort of analysis is that an organization may not have direct access to the proxy data required. A further refinement of this project will be to normalize input data from the client. This will be an additional layer in the overall architecture of the solution but is out of scope of this project.
+
 ---
 
 ## Features
@@ -141,7 +145,7 @@ export GOOGLE_API_KEY="your_api_key_here"
 Run the application:
 
 ```bash
-python main.py sample_input.json
+python3 main.py sample_input.json
 ```
 
 ---
@@ -154,6 +158,7 @@ workspace-utilization-estimator/
 ├── main.py
 ├── models.py
 ├── validator.py
+├── normalizer.py
 ├── prompt_builder.py
 ├── utilization_agent.py
 ├── parser.py
@@ -187,6 +192,7 @@ Planned improvements include:
 
 ### Phase 2
 
+* Client input data normalization
 * Financial impact modeling
 * Scenario analysis
 * Savings estimates
