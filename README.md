@@ -36,7 +36,7 @@ The output is intended to be directional and decision-supportive rather than a s
 
 Normalization of Client Data
 
-A further complication in this sort of analysis is that an organization may not have direct access to the proxy data required. A further refinement of this project will be to normalize input data from the client. This will be an additional layer in the overall architecture of the solution but is out of scope of this project.
+A further complication in this sort of analysis is that an organization may not have direct access to the proxy data required. A further refinement of this project will be to refine the normalization process that converts input data from the client to the set of proxy data. This will be an additional layer in the overall architecture of the solution but is out of scope of this project.
 
 ---
 
@@ -94,6 +94,30 @@ A further complication in this sort of analysis is that an organization may not 
   "executive_interpretation": "The organization appears materially over-provisioned relative to probable occupancy patterns."
 }
 ```
+## Units
+```
+| Field | Meaning | Units |
+| --- | --- | --- |
+| ``organization_name`` | Name of the organization | string |
+| ``employees`` | Total number of employees | count |
+| ``sqft`` | Total usable office square footage | square feet |
+| ``vacation_days`` | Paid vacation days per employee per year | days/year |
+| ``sick_days`` | Sick days per employee per year | days/year |
+| ``travel_percentage`` | Percent of employees traveling on a typical day | % (0–100) |
+| ``vpn_usage_percentage`` | Percent of employees working remotely via VPN | % (0–100) |
+| ``peak_login_percentage`` | Percent of employees logged in during peak hours | % (0–100) |
+| ``meeting_hours`` | Average meeting hours per employee per workday | hours/day |
+| ``hybrid_days`` | Number of days per week employees may work remotely | days/week (0–5) |
+```
+## Proxy Formulas
+
+| Proxy Feature | Formula | Meaning |
+| --- | --- | --- |
+| ``avg_daily_presence`` | ``(100 ``- ``travel_percentage ``- ``vpn_usage_percentage) ``/ ``100`` | Estimated percent of employees physically present on a typical day |
+| ``adjusted_vpn_factor`` | ``vpn_usage_percentage ``/ ``100`` | Normalized remote‑work intensity |
+| ``meeting_density_score`` | ``meeting_hours ``/ ``8`` (capped at 1.0) | Meeting load relative to an 8‑hour day |
+| ``travel_absence_factor`` | ``travel_percentage ``/ ``100`` | Normalized travel‑related absence |
+| ``hybrid_presence_ratio`` | ``hybrid_days ``/ ``5`` | Hybrid schedule intensity |
 
 ---
 
